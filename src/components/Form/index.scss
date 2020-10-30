@@ -1,17 +1,43 @@
 .form {
   display: flex;
+  flex-direction: column;
+  position: relative;
   width: 100%;
   height: 662px;
   background: #3748AA;
+
+  &::before{
+    content: '';
+    display: block;
+    position: absolute;
+    left: 127px;
+    top:-40px;
+    width: 0px;
+    height:0px;
+    border: 40px solid transparent;
+    border-left-color: #3748AA ;
+    pointer-events: none;
+  }
 }
 
 
+
 .form_step{
-  margin: 15% 10% 70% 10%;
+  padding-top: 102px;
+  padding-left: 125px;
   font-family: Roboto;
   font-style: normal;
   font-weight: 300;
   font-size: 40px;
   line-height: 50px;
   color: #FFFFFF;
+}
+
+.form_select {
+  width: 1100px;
+  height: 273px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 67px;
+  margin-left: 125px;
 }

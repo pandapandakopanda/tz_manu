@@ -7,7 +7,6 @@ class Header extends React.Component {
     return(
       <div className={ST.header}>
         <h2 className={ST.header_h2}>Приветики. Это мое тз</h2>
-        <div className={ST.header_triangle}></div>
       </div>
     )
   }
