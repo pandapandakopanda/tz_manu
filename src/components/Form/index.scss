@@ -2,8 +2,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 100%;
-  height: 662px;
+  padding: 100px 125px 130px 125px;
   background: #3748AA;
 
   &::before{
@@ -18,25 +17,23 @@
     border-left-color: #3748AA ;
     pointer-events: none;
   }
+ 
 }
 
 
 
 .form_step{
-  padding-top: 102px;
-  padding-left: 125px;
   font-family: Roboto;
   font-style: normal;
   font-weight: 300;
   font-size: 40px;
   line-height: 50px;
   color: #FFFFFF;
+  padding: 0;
+  margin: 0 0 50px 0;
 }
 
 .form_select {
-
   display: flex;
   flex-wrap: wrap;
-  margin-top: 67px;
-  margin-left: 125px;
 }

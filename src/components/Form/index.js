@@ -1,53 +1,57 @@
 import React from 'react'
+import {inject, observer} from 'mobx-react'
 
 import ST from './index.scss'
 import Select from '../ui/Select'
 import Button from '../ui/Button'
 
-import json from '../../core/data.json'
-console.log('json: ', json);
 
 
-const items = [ 
-  {"id": "RU", "name": "Россия"},
-  {"id": "DE", "name": "Германия"},
-  {"id": "EE", "name": "Эстония"}
-]
-
-
-
+@inject('store')
+@observer
 class Form extends React.Component {
-
- 
+  
+  
   render(){
     const step = '1'
+    
+    const {countries, types, trys, timespent} = this.props.store
+    const {countryId, visaId, countId, timeId} = this.props.store
+
     return(
       <div className={ST.form}>
         <h2 className={ST.form_step}>Шаг {step}.</h2>
         <div className={ST.form_select}>
           <Select 
             title={'Выберите страну'}
-            selected={items[0].id}
-            items={items} 
+            selected={countryId}
+            items={countries} 
+            placeholder={'Выберите страну'}
+            onSelect = {this.props.store.setCountryId}
           />
            <Select 
             title={'Тип визы'}
-            selected={items[0].id}
-            items={items} 
+            selected={visaId}
+            items={types} 
+            placeholder={'Выберите тип визы'}
+            onSelect = {this.props.store.setVisaId}
           />
           <Select 
             title={'Количество заездов'}
-            selected={items[0].id}
-            items={items} 
+            selected={countId}
+            items={trys} 
+            placeholder={'Выберите количество заездов'}
+            onSelect = {this.props.store.setCountId}
           />
           <Select 
             title={'Время обработки'}
-            selected={items[0].id}
-            items={items} 
-          />
+            selected={timeId}
+            items={timespent} 
+            placeholder={'Выберите время обработки'}
+            onSelect = {this.props.store.setTimeId}  
+          /> 
           <div className={ST.form_data}>
           </div>
-        <Button type='button' title={'Продолжить'}/>
         </div>
       </div>
     )

@@ -7,12 +7,14 @@ import {calcClass} from '../../../core/help'
 class Button extends React.Component {
   render(){
 
-    const {type, title}=this.props
-    console.log('type: ', type,{});
+    const {mody, title, onClickHandler}=this.props
 
-    const buttonClass = calcClass(type, ST)
+    const buttonClass = calcClass('button', ST, mody)
     return(
-      <div className={buttonClass}>
+      <div 
+        className={buttonClass}
+        onClick={onClickHandler}
+      >
         {title}
       </div>
     )
