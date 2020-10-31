@@ -1,6 +1,11 @@
 import React from 'react'
+
 import ST from './index.scss'
 import Select from '../ui/Select'
+import Button from '../ui/Button'
+
+import json from '../../core/data.json'
+console.log('json: ', json);
 
 
 const items = [ 
@@ -8,6 +13,7 @@ const items = [
   {"id": "DE", "name": "Германия"},
   {"id": "EE", "name": "Эстония"}
 ]
+
 
 
 class Form extends React.Component {
@@ -24,6 +30,24 @@ class Form extends React.Component {
             selected={items[0].id}
             items={items} 
           />
+           <Select 
+            title={'Тип визы'}
+            selected={items[0].id}
+            items={items} 
+          />
+          <Select 
+            title={'Количество заездов'}
+            selected={items[0].id}
+            items={items} 
+          />
+          <Select 
+            title={'Время обработки'}
+            selected={items[0].id}
+            items={items} 
+          />
+          <div className={ST.form_data}>
+          </div>
+        <Button type='button' title={'Продолжить'}/>
         </div>
       </div>
     )
