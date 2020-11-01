@@ -37,3 +37,33 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+.form_cost {
+  display: flex;
+  width: 500px;
+  height: 100px;
+  padding: 0 60px 0;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #FFFFFF;
+  margin-top: 40px;
+  font-family: Roboto;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 23px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #FFFFFF;
+  box-sizing: border-box;
+}
+.form_totalcost {
+  font-family: Roboto;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: 0em;
+  text-align: left;
+  color:#FF6700;
+}

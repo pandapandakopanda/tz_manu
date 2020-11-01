@@ -6,7 +6,6 @@ import Select from '../ui/Select'
 import Button from '../ui/Button'
 
 
-
 @inject('store')
 @observer
 class Form extends React.Component {
@@ -15,8 +14,18 @@ class Form extends React.Component {
   render(){
     const step = '1'
     
-    const {countries, types, trys, timespent} = this.props.store
-    const {countryId, visaId, countId, timeId} = this.props.store
+    const {
+      countries, 
+      types, 
+      countryId, 
+      visaId, 
+      countId, 
+      timeId,
+      filtredTryes,
+      filtredTimeSpent,
+      totalCost
+    } = this.props.store
+    console.log('totalCost: ', totalCost);
 
     return(
       <div className={ST.form}>
@@ -39,19 +48,23 @@ class Form extends React.Component {
           <Select 
             title={'Количество заездов'}
             selected={countId}
-            items={trys} 
-            placeholder={'Выберите количество заездов'}
+            items={filtredTryes} 
+            placeholder={(countryId)?'Выберите количество заездов':'пожалуйста выберите страну'}
             onSelect = {this.props.store.setCountId}
           />
           <Select 
             title={'Время обработки'}
             selected={timeId}
-            items={timespent} 
-            placeholder={'Выберите время обработки'}
+            items={filtredTimeSpent} 
+            placeholder={(countryId)?'Выберите время обработки':'пожалуйста выберите страну'}
             onSelect = {this.props.store.setTimeId}  
           /> 
           <div className={ST.form_data}>
           </div>
+        </div>
+        <div className={ST.form_cost}>
+          <p>Предварительная стоимость:</p>
+          <p className={ST.form_totalcost}>{ `€${totalCost}` }</p>
         </div>
       </div>
     )

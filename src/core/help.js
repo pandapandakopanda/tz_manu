@@ -6,3 +6,8 @@ export const calcClass = (type,ST, modifire) => {
 
 export const findElementbyId = (id, array) => array.find(el => el.id === id)
 
+
+export const stringToNumber = (str) => {
+  return parseFloat(str.replace(',','.'))
+}
+

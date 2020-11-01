@@ -6,16 +6,23 @@ import Button from '../Button'
 import {findElementbyId} from '../../../core/help'
 
 class Select extends React.Component {
-  listRef = React.createRef()
+/*   listRef = React.createRef()
   
   handleClick = (ev) =>{
-    const {target} = ev
-   if (target.contains(this.listRef.current)) this.toggle() 
+    if( !this.state.isListOpen ) return  
+    
+    const { target } = ev
+    const listElement = this.listRef.current
+    if ( !listElement.contains(target) ) this.toggle() 
   }
 
   componentDidMount(){
-    document.body.addEventListener('click',this.handleClick)
+    document.body.addEventListener('click', this.handleClick)
   }
+
+  componentWillUnmount(){
+    document.body.removeEventListener('click', this.handleClick)
+  } */
   
   state={
     isListOpen: false
@@ -27,27 +34,27 @@ class Select extends React.Component {
 
   onClick = (ev) => {
     const id = ev.target.dataset.id
-    this.props.onSelect(id) 
+    this.props.onSelect(id)
+    this.toggle() 
   }
 
 
   render(){
-
-
     const { title, selected, items, placeholder } = this.props
-    
     const selectedItem = findElementbyId(selected, items)
-    console.log('selectedItem: ', selectedItem);
     const name = selectedItem ? selectedItem.name : placeholder
+
+
     const list = items.map(i =>{ 
-    return <li 
-            className={ ST.select_item } 
-            data-id={ i.id } 
-            key={ i.id }
-          >
-            {i.name}
-          </li>}
-        )
+      return <li 
+              className={ ST.select_item } 
+              data-id={ i.id } 
+              key={ i.id }
+            >
+              {i.name}
+            </li>
+    })
+
     const headerClass = calcClass('select_header', ST,{'open': this.state.isListOpen})
 
     return(
