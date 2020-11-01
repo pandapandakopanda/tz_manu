@@ -9,19 +9,13 @@ import Button from '../Button'
 @observer
 class Data extends React.Component {
 
-  inputRef = React.createRef()
-
-  onClickHandler = () => {
-    const inputEl = this.inputRef.current
-  }
-
   onChange = (ev) => {
     const date = ev.target.value
     this.props.onChange(date)
   }
 
   render(){
-    const {title, date} = this.props
+    const {title, date, min} = this.props
 
     return(
       <div className={ST.date}>
@@ -30,7 +24,12 @@ class Data extends React.Component {
           {date}
           <Button mody={{'data_picker':true}} onClickHandler = {this.onClickHandler}/>
         </div>
-        <input className={ST.data_input} onChange={this.onChange} type='date' ref={this.inputRef}/>
+        <input 
+          className={ST.data_input} 
+          onChange={this.onChange} 
+          type='date'
+          onKeyDown={(e) => e.preventDefault()}
+        />
       </div>
     )
   }

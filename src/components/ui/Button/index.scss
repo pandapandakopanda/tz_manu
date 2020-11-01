@@ -16,12 +16,17 @@
   font-size: 18px;
   line-height: 25px;
   color: white;
+  &--back {
+    background: #3748AA;
+    border: 1px solid #7182ED;
+    box-sizing: border-box;
+    box-shadow: 0px 20px 40px #0B1A73;
+  }
   &--arrow_down {
     width: 25px;
     height: 25px;
     background-color: #FF6700;
     color: white;
-    justify-self: flex-end;
     margin-right: 13px;
     background-image: url('../../../assets/keyboard_arrow_down_white_24x24.png');
     background-size: contain;

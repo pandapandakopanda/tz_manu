@@ -5,36 +5,31 @@ import ST from './index.scss'
 import Select from '../ui/Select'
 import Data from '../ui/Data'
 import Button from '../ui/Button'
+import iconRight from '../../assets/keyboard_arrow_right.png'
 
 
 @inject('store')
 @observer
-class Form extends React.Component {
+class FormOne extends React.Component {
   
   
   render(){
-    const step = '1'
-    
+
     const {
-      countries, 
-      types, 
-      countryId, 
-      visaId, 
-      countId, 
-      timeId,
-      filtredTryes,
-      filtredTimeSpent,
+      countries, countryId, 
+      types, visaId, 
+      filtredTryes, countId, 
+      filtredTimeSpent, timeId,
       totalCost,
-      startDate,
-      endDate,
-      setStartDate,
-      setEndDate
+      startDate, endDate,
+      setStartDate, setEndDate,
+      checkDataFirstSTep
     } = this.props.store
-    console.log('totalCost: ', totalCost);
+
 
     return(
       <div className={ST.form}>
-        <h2 className={ST.form_step}>Шаг {step}.</h2>
+        <h2 className={ST.form_step}>Шаг 1.</h2>
         <div className={ST.form_select}>
           <div className={ST.form_field}>
             <Select 
@@ -53,7 +48,7 @@ class Form extends React.Component {
             />
           </div>
           <div className={ST.form_field}>
-            <div className={ST.form_data}>
+            <div className={ST.form_date}>
                 <Data title='Въезд:' date={startDate} onChange={setStartDate}/>
                 <Data title='Выезд:' date={endDate} onChange={setEndDate}/>
             </div>
@@ -61,25 +56,30 @@ class Form extends React.Component {
               title={'Количество заездов'}
               selected={countId}
               items={filtredTryes} 
-              placeholder={(countryId)?'Выберите количество заездов':'пожалуйста выберите страну'}
+              placeholder={(countryId)?'Выберите количество заездов':'Пожалуйста, выберите страну'}
               onSelect = {this.props.store.setCountId}
             />
             <Select 
               title={'Время обработки'}
               selected={timeId}
               items={filtredTimeSpent} 
-              placeholder={(countryId)?'Выберите время обработки':'пожалуйста выберите страну'}
+              placeholder={(countryId)?'Выберите время обработки':'Пожалуйста, выберите страну'}
               onSelect = {this.props.store.setTimeId}  
             /> 
           </div>
         </div>
-        <div className={ST.form_cost}>
-          <p>Предварительная стоимость:</p>
-          <p className={ST.form_totalcost}>{ `€${totalCost}` }</p>
+        <div className={ST.form_bottomField}>
+          <div className={ST.form_dataField}>
+            <div className={ST.form_cost}>
+            <p>Предварительная стоимость:</p>
+            <p className={ST.form_totalcost}>{ `€${totalCost}` }</p>
+            </div>
+          </div>
+          <Button title={`Продолжить `} onClickHandler={checkDataFirstSTep}/>
         </div>
       </div>
     )
   }
 }
 
-export default Form
+export default FormOne

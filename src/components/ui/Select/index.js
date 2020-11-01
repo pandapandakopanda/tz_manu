@@ -6,23 +6,6 @@ import Button from '../Button'
 import {findElementbyId} from '../../../core/help'
 
 class Select extends React.Component {
-/*   listRef = React.createRef()
-  
-  handleClick = (ev) =>{
-    if( !this.state.isListOpen ) return  
-    
-    const { target } = ev
-    const listElement = this.listRef.current
-    if ( !listElement.contains(target) ) this.toggle() 
-  }
-
-  componentDidMount(){
-    document.body.addEventListener('click', this.handleClick)
-  }
-
-  componentWillUnmount(){
-    document.body.removeEventListener('click', this.handleClick)
-  } */
   
   state={
     isListOpen: false
@@ -67,7 +50,7 @@ class Select extends React.Component {
         </div>
         
         <div className={ST.wrapper}>
-          <ul className={ST.select_list} onClick={this.onClick} ref={this.listRef}>
+          <ul className={ST.select_list} onClick={this.onClick}>
             {(this.state.isListOpen)?list:null}
           </ul>
         </div>
