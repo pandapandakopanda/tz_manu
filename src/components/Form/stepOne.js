@@ -75,7 +75,9 @@ class FormOne extends React.Component {
             <p className={ST.form_totalcost}>{ `€${totalCost}` }</p>
             </div>
           </div>
-          <Button title={`Продолжить `} onClickHandler={checkDataFirstSTep}/>
+          <div className={ST.form_buttonField}>
+            <Button title={`Продолжить `} onClickHandler={checkDataFirstSTep}/>
+          </div>
         </div>
       </div>
     )

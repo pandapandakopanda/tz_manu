@@ -15,6 +15,8 @@ class FormTwo extends React.Component {
   
   
   render(){
+    const bottomfield = calcClass('form_bottomField', ST, {'twostep':true})
+    const buttonfield = calcClass('form_buttonField', ST, {'twostep':true})
 
     const {
       toggleForm,
@@ -36,9 +38,7 @@ class FormTwo extends React.Component {
       <div className={ST.form}>
         <h2 className={ST.form_step}>Шаг 2.</h2>
         <div className={ST.form_select}>
-          <div className={ST.form_user}>
-            <p>{user}</p>
-          </div>
+          <span className={ST.form_user}>{user}</span>
           <div className={ST.form_field}>
             
             <Input 
@@ -63,7 +63,7 @@ class FormTwo extends React.Component {
             />
           </div>
         </div>
-        <div className={ST.form_bottomField}>
+        <div className={bottomfield}>
 
           <div className={calcClass('form_dataField', ST, {'small':true})}>
             <p className={ST.form_visa}>Виза</p>
@@ -87,7 +87,7 @@ class FormTwo extends React.Component {
             </div>
           </div>
 
-          <div className = {ST.form_buttonField}>
+          <div className = {buttonfield}>
             <Button mody={{'back':true}} title={`Вернуться `} onClickHandler={toggleForm}/>
             <Button title={`Готово`} onClickHandler={checkDataSecondStep}/>
           </div>

@@ -1,6 +1,6 @@
 import { observable, action, computed } from 'mobx'
 import json from '../core/data.json'
-import {findElementById, stringToNumber} from '../core/help'
+import {stringToNumber} from '../core/help'
 
 class Store {
 
@@ -15,7 +15,6 @@ class Store {
   @observable step = true
   @observable firstName = ''
   @observable secondName = ''
-/*   @observable user = '' */
 
   countries = json['countries']
   types = json['types']
@@ -101,25 +100,25 @@ class Store {
   }
 
   getCountryName = () => {
-    const countries =  this.countries.find(el => el.id === this.countryId)
-    return countries.name
+    const countries = this.countries.find(el => el.id === this.countryId)
+    return (countries === undefined) ? '' : countries.name
   }
   getVisaType = () => {
-    const types =  this.types.find(el => el.id === this.visaId)
-    return types.name
+    const types = this.types.find(el => el.id === this.visaId)
+    return (types === undefined) ? '' : types.name
   }
   getSpentTime = () => {
-    const timespent =  this.filtredTimeSpent.find(el => el.id === this.timeId)
-    return timespent.name
+    const timespent = this.filtredTimeSpent.find(el => el.id === this.timeId)
+    return (timespent === undefined) ? '' : timespent.name
   }
   getSitizenship = () => {
-    const citizenship =  this.citizenship.find(el => el.id === this.sitizenshipId)
-    return citizenship.name
+    const citizenship = this.citizenship.find(el => el.id === this.sitizenshipId)
+    return (citizenship === undefined) ? '' : citizenship.name
   }
 
   getCountTry = () => {
-    const tryes =  this.filtredTryes.find(el => el.id === this.countId)
-    return tryes.name
+    const tryes = this.filtredTryes.find(el => el.id === this.countId)
+    return (tryes === undefined) ? '' : citizenship.name
   }
 
   checkDataFirstSTep = () => {
