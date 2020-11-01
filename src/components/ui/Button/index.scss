@@ -1,3 +1,4 @@
+
 .button {
   width: 190px;
   height: 61px;
@@ -15,7 +16,7 @@
   font-size: 18px;
   line-height: 25px;
   color: white;
-  &--sqrt {
+  &--arrow_down {
     width: 25px;
     height: 25px;
     background-color: #FF6700;
@@ -25,6 +26,19 @@
     background-image: url('../../../assets/keyboard_arrow_down_white_24x24.png');
     background-size: contain;
     box-shadow: none
+  }
+  &--data_picker{
+    width: 25px;
+    height: 25px;
+    background-color: #FF6700;
+    color: white;
+    justify-self: flex-end;
+    margin-right: 8px;
+    background-image: url('../../../assets/calendar.png');
+    background-position: center;
+    background-size: 16px;
+    background-repeat: no-repeat;
+    box-shadow: none;
   }
 }
 

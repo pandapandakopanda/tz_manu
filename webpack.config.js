@@ -13,6 +13,10 @@ module.exports = {
         test: /\.(png|jpg)$/,
         loader: 'url-loader?limit=812392',
       },
+      { 
+        test: /\.svg$/, 
+        loader: 'raw-loader' 
+      },
       {
         test: /\.s[ac]ss$/i,
         use: [

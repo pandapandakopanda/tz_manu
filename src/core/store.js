@@ -8,6 +8,8 @@ class Store {
   @observable visaId = ''
   @observable countId = ''
   @observable timeId = ''
+  @observable startDate = 'выберите дату'
+  @observable endDate = 'выберите дату'
 
   countries = json['countries']
   types = json['types']
@@ -48,6 +50,15 @@ class Store {
   @action setTimeId = (id) => {
     this.timeId = id
   }
+
+  @action setStartDate = (date) => {
+    this.startDate = date.replaceAll('-','.')
+  }
+
+  @action setEndDate = (date) => {
+    this.endDate = date.replaceAll('-','.')
+  }
+
 
 
 }        

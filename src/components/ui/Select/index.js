@@ -63,7 +63,7 @@ class Select extends React.Component {
 
         <div className={headerClass} onClick={ this.toggle }>
           { name }
-          <Button mody={{'sqrt':true}}/>
+          <Button mody={{'arrow_down':true}}/>
         </div>
         
         <div className={ST.wrapper}>
